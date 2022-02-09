@@ -1,4 +1,4 @@
-public struct XoiAppleCmpts {
+public struct Button {
     public private(set) var text = "Hello, World!"
 
     public init() {
