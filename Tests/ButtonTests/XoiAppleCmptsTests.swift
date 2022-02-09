@@ -1,11 +1,15 @@
 import XCTest
-@testable import Button
+import ViewInspector
+@testable import ThemedButton
 
-final class ButtonTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(Button().text, "Hello, World!")
+extension ThemedButton: Inspectable {}
+
+final class ThemedButtonTests: XCTestCase {
+    func testButtonUppercasesText() throws {
+        let btn = ThemedButton(text: "Press Me!") {
+            print("Pressed!")
+        }
+
+        XCTAssertNotNil(try btn.inspect().find(text: "PRESS ME!" ))
     }
 }
